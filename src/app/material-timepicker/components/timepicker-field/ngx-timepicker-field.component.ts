@@ -144,14 +144,14 @@ export class NgxTimepickerFieldComponent implements OnInit, OnDestroy, ControlVa
             tap(() => this.isFirstTimeChange = false)
         ) as Observable<ClockFaceTime>;
 
-        if (this.format === 12) {
+        // if (this.format === 12) {
             this.timepickerService.selectedPeriod.pipe(
                 distinctUntilChanged<TimePeriod>(),
                 tap((period: TimePeriod) => this.period = period),
                 tap(period => this.isChangePeriodDisabled = this.isPeriodDisabled(period)),
                 takeUntil(this.unsubscribe$)
             ).subscribe(() => this.isTimeRangeSet && this.updateAvailableTime());
-        }
+        // }
 
     }
 
